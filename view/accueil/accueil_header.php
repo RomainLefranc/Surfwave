@@ -26,7 +26,7 @@
                 <form class="form-inline my-2 my-md-0">
                     <input class="form-control" type="text" placeholder="Recherche" aria-label="Search">
                 </form>
-                <button type="button" class="btn">Connexion</button>
+                <button type="button" class="btn" id='btn-connexion' >Connexion</button>
             </div>
         </div>
     </nav>

@@ -21,66 +21,9 @@
                   </tr>
                </thead>
                <tbody>
-                  <tr>
-                     <td>1 heure</td>
-                     <td>10 €</td>
-                     <td>7 €</td>
-                     <td>7 €</td>
-                  </tr>
-                  <tr>
-                     <td>2 heures</td>
-                     <td>15 €</td>
-                     <td>10 €</td>
-                     <td>10 €</td>
-                  </tr>
-                  <tr>
-                     <td>3 heures</td>
-                     <td>20 €</td>
-                     <td>15 €</td>
-                     <td>15 €</td>
-                  </tr>
-                  <tr>
-                     <td>4 heures</td>
-                     <td>25 €</td>
-                     <td>20 €</td>
-                     <td>20 €</td>
-                  </tr>
-                  <tr>
-                     <td>1 jour</td>
-                     <td>35 €</td>
-                     <td>25 €</td>
-                     <td>25 €</td>
-                  </tr>
-                  <tr>
-                     <td>2 jours</td>
-                     <td>45 €</td>
-                     <td>35 €</td>
-                     <td>35 €</td>
-                  </tr>
-                  <tr>
-                     <td>3 jours</td>
-                     <td>55 €</td>
-                     <td>45 €</td>
-                     <td>45 €</td>
-                  </tr>
-                  <tr>
-                     <td>4 jours</td>
-                     <td>65 €</td>
-                     <td>55 €</td>
-                     <td>55 €</td>
-                  </tr>
-                  <tr>
-                     <td>5 jours</td>
-                     <td>75 €</td>
-                     <td>65 €</td>
-                     <td>65 €</td>
-                  </tr>
-                  <tr>
-                     <td>6 jours</td>
-                     <td>85 €</td>
-                     <td>75 €</td>
-                     <td>75 €</td>
-                  </tr>
+                  <?php
+                     echo $html;
+                  ?>
                </tbody>
             </table>
          </div>

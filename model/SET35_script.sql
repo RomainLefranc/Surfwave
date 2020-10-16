@@ -74,5 +74,57 @@ CREATE TABLE TARIFICATION (
     CONSTRAINT FK_Tarification_2 FOREIGN KEY (categoProd) REFERENCES CATPROD(categoProd)
 );
 
+INSERT INTO DUREE VALUES 
+("1h", "1 heure"),
+('2h','2 heures'),
+('3h', '3 heures'),
+('4h','4 heures'),
+('1j','1 jour'),
+('2j','2 jours'),
+('3j','3 jours'),
+('4j','4 jours'),
+('5j','5 jours'),
+('6j','6 jours');
+
+INSERT INTO CATPROD VALUES
+('PS','Planche de surf'),
+('BB','Bodyboard'),
+('CO','Combinaison');
+
+INSERT INTO TARIFICATION VALUES
+('1h','PS',10),
+('2h','PS',15),
+('3h','PS',20),
+('4h','PS',25),
+('1j','PS',35),
+('2j','PS',45),
+('3j','PS',55),
+('4j','PS',65),
+('5j','PS',75),
+('6j','PS',85),
+
+('1h','BB',7),
+('2h','BB',10),
+('3h','BB',15),
+('4h','BB',20),
+('1j','BB',25),
+('2j','BB',35),
+('3j','BB',45),
+('4j','BB',55),
+('5j','BB',65),
+('6j','BB',75),
+
+('1h','CO',7),
+('2h','CO',10),
+('3h','CO',15),
+('4h','CO',20),
+('1j','CO',25),
+('2j','CO',35),
+('3j','CO',45),
+('4j','CO',55),
+('5j','CO',65),
+('6j','CO',75);
+
+
 
 

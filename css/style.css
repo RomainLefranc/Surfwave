@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather|Merriweather+Sans');
 body {
-   background-image: url(../img/background.jpg);
+   background-image: url(../media/background.jpg);
    font-family: 'Merriweather Sans', sans-serif;
 }
 
@@ -45,7 +45,7 @@ img {
 }
 
 header {
-   background-image: url(../img/backsurf.png);
+   background-image: url(../media/backsurf.png);
    height: 1296px;
 }
 
@@ -296,7 +296,7 @@ header nav{
 /* FOOTER */
 
 footer {
-   background-image: url(../img/back-footer.png);
+   background-image: url(../media/back-footer.png);
    width: 100%;
    padding-top: 670px;
    text-transform: uppercase;

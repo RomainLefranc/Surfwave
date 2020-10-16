@@ -2,7 +2,7 @@
 
 session_start();
 include "controller/controleur.php";/* Outil permettant la verification des parametre reçus */
-$pages = array (["A","accueil"]);
+$pages = array (["A","accueil"],["ad","admin"],['D','deconnexion']);
 $controlExiste = false;
 if (verifAction()) {
     foreach ($pages as $page) {
@@ -12,7 +12,7 @@ if (verifAction()) {
         }
     }
     if (!$controlExiste) {
-        include "view/404.php";
+        include "view/v_404.php";
     }
 };
 ?>
