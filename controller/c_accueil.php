@@ -14,7 +14,7 @@ foreach ($listeTarification as $tarification) {
 if (isset($_POST["login"]) && isset($_POST["mdp"])) {
     if (verifUserExiste()) {
         $_SESSION["user"] = $_POST["login"];
-        header ('location: index.php?action=ad');
+        header ('location: index.php?action=AD');
     } else {
         $_POST["erreur"] = 1;
         $view = "accueil";
@@ -22,7 +22,6 @@ if (isset($_POST["login"]) && isset($_POST["mdp"])) {
 } else {
     $view = "accueil";
 }
-include "view/v_$view.php";
 
 
 ?>

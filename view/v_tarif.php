@@ -9,8 +9,16 @@
 </head>
 <body>
     <?php
-        include "admin/admin_header.php";
-        include "admin/admin_footer.php";
+/*         include "tarif/tarif_header.php"; */
+        if ($_GET['crud'] == 'c') {
+            include "tarif/tarif_create.php";
+        } elseif ($_GET['crud'] == 'r') {
+            include "tarif/tarif_read.php";
+        } elseif ($_GET['crud'] == 'u') {
+            include "tarif/tarif_update.php";
+        } elseif ($_GET['crud'] == 'd') {
+            include "tarif/tarif_delete.php";
+        }
     ?>
     <script src="assets/jquery/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>

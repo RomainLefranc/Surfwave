@@ -1,9 +1,9 @@
 <?php
-if (isset($_SESSION["user"])) {
+
+if (verifSession()) {
     $user = htmlspecialchars($_SESSION["user"]);
     $view = 'admin';
 } else {
     $view = '403';
 }
-include "view/v_$view.php";
 ?>
