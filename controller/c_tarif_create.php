@@ -19,13 +19,12 @@ foreach ($listeDuree as $duree) {
     '<option value="'.$duree['codeDuree'].'">'.$duree['codeDuree'].'</option>';
 }
 
-
 $listeCategoProd = getListeCategorie();
 $selectCatego = '';
-
 foreach ($listeCategoProd as $categoProd) {
     $selectCatego.=
     '<option value="'.$categoProd['categoProd'].'">'.$categoProd['categoProd'].'</option>';
 }
+
 $view = 'tarif'
 ?>
