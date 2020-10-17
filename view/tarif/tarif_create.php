@@ -5,8 +5,8 @@ if (isset($_POST['msg'])) {
         Ajout effectué
       </div>';
     }else {
-        echo '<div class="alert alert-success" role="alert">
-        Ajout impossible
+        echo '<div class="alert alert-danger" role="alert">
+        Ce tarif existe déjà
       </div>';
     }
 }

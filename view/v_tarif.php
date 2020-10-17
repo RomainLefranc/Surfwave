@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php
-/*         include "tarif/tarif_header.php"; */
+        include "tarif/tarif_navbar.php";
         if ($_GET['crud'] == 'c') {
             include "tarif/tarif_create.php";
         } elseif ($_GET['crud'] == 'r') {

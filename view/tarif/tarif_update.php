@@ -2,7 +2,7 @@
 if (isset($_POST['msg'])) {
     if ($_POST['msg'] == 1) {
         echo '<div class="alert alert-success" role="alert">
-        Ajout effectué
+        Modification effectué
       </div>';
     }
 }
