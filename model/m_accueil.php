@@ -29,6 +29,17 @@
         return $userExiste;
     }
 
+    function getListeEquipier() {
+        include "pdo.php";
+
+        $requete = $pdo->prepare(
+            'SELECT surnomEq, fonctionEq FROM equipier'
+        );
+        $requete->execute();
+        $resultat = $requete->fetchall();
+        return $resultat;    
+    }
+
 ?>
 
 

@@ -22,7 +22,7 @@
                </thead>
                <tbody>
                   <?php
-                     echo $html;
+                     echo $htmlTarif;
                   ?>
                </tbody>
             </table>
