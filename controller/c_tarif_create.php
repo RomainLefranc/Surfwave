@@ -2,10 +2,13 @@
 
 include "model/m_tarif.php";
 
-if (isset($_POST['prix']) && isset($_POST['categoProd']) && isset($_POST['duree'])) {
-    $resultat = verifTarif();
-    if (!$resultat) {
-        ajoutTarif();
+if (isset($_POST['prix']) && isset($_POST['categoProd']) && isset($_POST['duree'])) {   
+    $codeDuree =$_POST['duree'];
+    $codeCategoProd = $_POST['categoProd'];
+    $prix = $_POST['prix'];
+    
+    if (verifTarif($codeDuree, $codeCategoProd)) {
+        ajoutTarif($codeDuree, $codeCategoProd, $prix);
         $_POST['msg'] = 1;
     } else {
         $_POST['msg'] = 2;
