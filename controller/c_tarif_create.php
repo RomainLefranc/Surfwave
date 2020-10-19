@@ -2,12 +2,13 @@
 include "model/m_tarif.php";
 
 if (isset($_POST['prix']) && isset($_POST['categoProd']) && isset($_POST['duree'])) {   
-    $codeDuree =$_POST['duree'];
-    $codeCategoProd = $_POST['categoProd'];
-    $prix = $_POST['prix'];
-    $tarifExiste = verifTarifExiste($codeDuree, $codeCategoProd);
-    if (!$tarifExiste) {
-        ajoutTarif($codeDuree, $codeCategoProd, $prix);
+
+    $categoProdOutput = htmlspecialchars($_POST['categoProd']);
+    $codeDureeOutput = htmlspecialchars($_POST['duree']);
+    $prixOutput = htmlspecialchars($_POST['prix']);
+    
+    if (verifcodeDureeValide($codeDureeOutput) && verifCategoProdValide($categoProdOutput) && verifPrix($prixOutput) && !verifTarifExiste($codeDureeOutput, $categoProdOutput)) {
+        ajoutTarif($codeDureeOutput, $categoProdOutput, $prixOutput);
         $_POST['msg'] = 1;
     } else {
         $_POST['msg'] = 2;

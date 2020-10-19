@@ -353,3 +353,8 @@ footer a {
       text-align: center;
    }
 }
+
+
+.table td {
+   text-align: center;   
+}

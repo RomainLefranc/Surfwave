@@ -22,5 +22,12 @@ function verifCrud() {
         header("location: index.php?action=E&crud=r");
     }
 }
+function verifPrix() {
+    if (intval($_POST['prix']) > 0) {
+        return true;    
+    } else {
+        header("location: index.php?action=T&crud=r&msg=5");
+    }
+}
 
 ?>
