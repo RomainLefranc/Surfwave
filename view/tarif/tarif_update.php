@@ -7,7 +7,7 @@ if (isset($_POST['msg'])) {
     }
 }
 ?>
-<div class="container d-flex justify-content-center">
+<div class="container d-flex justify-content-center mt-3">
     <form action="index.php?action=T&crud=u&cd=<?php echo $resultat['codeDuree'] ?>&cp=<?php echo $resultat['categoProd'] ?>" method="POST"class='col-6'>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Durée </label>

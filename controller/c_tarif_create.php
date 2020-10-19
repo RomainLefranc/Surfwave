@@ -1,21 +1,27 @@
 <?php
 include "model/m_tarif.php";
 
-if (isset($_POST['prix']) && isset($_POST['categoProd']) && isset($_POST['duree'])) {   
 
-    $categoProdOutput = htmlspecialchars($_POST['categoProd']);
-    $codeDureeOutput = htmlspecialchars($_POST['duree']);
-    $prixOutput = htmlspecialchars($_POST['prix']);
-    
-    if (verifcodeDureeValide($codeDureeOutput) && verifCategoProdValide($categoProdOutput) && verifPrix($prixOutput) && !verifTarifExiste($codeDureeOutput, $categoProdOutput)) {
-        ajoutTarif($codeDureeOutput, $categoProdOutput, $prixOutput);
-        $_POST['msg'] = 1;
-    } else {
-        $_POST['msg'] = 2;
+
+$codeDureeInput = htmlspecialchars($_GET['cd']);
+$categoProdInput = htmlspecialchars($_GET['cp']);
+
+
+if (verifcodeDureeValide($codeDureeInput) && verifCategoProdValide($categoProdInput) && !verifTarifExiste($codeDureeInput, $categoProdInput)) {
+
+    if (isset($_POST['prix'])) {
+
+        $prixOutput = htmlspecialchars($_POST['prix']);
+
+        if (verifPrix($prixOutput)) {
+            ajoutTarif($codeDureeInput, $categoProdInput, $prixOutput);
+            $_POST['msg'] = 1;        
+        }
     }
+/*     $view = "tarif"; */
 };
 
-$listeDuree = getListeDuree();
+/* $listeDuree = getListeDuree();
 $selectDuree = '';
 foreach ($listeDuree as $duree) {
     $selectDuree.=
@@ -27,7 +33,7 @@ $selectCatego = '';
 foreach ($listeCategoProd as $categoProd) {
     $selectCatego.=
     '<option value="'.$categoProd['categoProd'].'">'.$categoProd['categoProd'].'</option>';
-}
+} */
 
 $view = 'tarif'
 ?>

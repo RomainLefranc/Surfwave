@@ -1,16 +1,29 @@
 <?php
 
 /* Outils génerale */
+function getListeTarification() {
+    include "pdo.php";
+
+    $requete = $pdo->prepare(
+        'SELECT codeDuree,libDuree,
+        (SELECT prixLocation FROM TARIFICATION WHERE categoProd = "PS" AND TARIFICATION.codeDuree = Duree.codeDuree) AS prixLocationPS,
+        (SELECT prixLocation FROM TARIFICATION WHERE categoProd = "BB" AND TARIFICATION.codeDuree = Duree.codeDuree) AS prixLocationBB,
+        (SELECT prixLocation FROM TARIFICATION WHERE categoProd = "CO" AND TARIFICATION.codeDuree = Duree.codeDuree) AS prixLocationCO
+
+        FROM DUREE 
+        ORDER BY RIGHT(codeDuree,1)
+        '
+    );
+    $requete->execute();
+    $resultat = $requete->fetchall();
+    return $resultat;
+}
 function verifTarifExiste($codeDuree, $categoProd) {
     include "pdo.php";
     $requete = $pdo->prepare('SELECT IF((SELECT COUNT(*) FROM tarification WHERE codeDuree = :codeDuree AND categoProd = :categoProd) > 0, TRUE, FALSE)');
     $requete->execute(["codeDuree" => $codeDuree, "categoProd" => $categoProd]);
     $resultat = $requete->fetchall();
-    if ($resultat[0][0]) {
-        return true;
-    } else {
-        header("location: index.php?action=T&crud=r&msg=3");
-    }
+    return $resultat[0][0];
 }
 function verifcodeDureeValide($codeDuree) {
     include "pdo.php";
@@ -57,13 +70,13 @@ function ajoutTarif($codeDuree, $categoProd, $prix) {
 }
 
 /* READ */
-function getListeTarification() {
+/* function getListeTarification() {
     include "pdo.php";
     $requete = $pdo->prepare('SELECT * FROM TARIFICATION');
     $requete->execute();
     $resultat = $requete->fetchall();
     return $resultat;
-}
+} */
 
 /* UPDATE */
 function getTarif($codeDuree, $categoProd) {

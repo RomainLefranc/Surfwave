@@ -11,23 +11,17 @@ if (isset($_POST['msg'])) {
     }
 }
 ?>
-<div class="container d-flex justify-content-center">
-    <form action="index.php?action=T&crud=c" method="POST"class='col-6'>
+<div class="container d-flex justify-content-center mt-3">
+    <form action="index.php?action=T&crud=c&cd=<?php echo $codeDureeInput ?>&cp=<?php echo $categoProdInput ?>" method="POST"class='col-6'>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Durée </label>
-            <select class="form-control" id="exampleFormControlSelect1" name='duree' required>
-                <?php
-                    echo $selectDuree;
-                ?>
-            </select>
+            <input class='form-control'type="text" readonly name='cd' value='<?php echo $codeDureeInput ?>'>
+
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect2">Categorie Produit</label>
-            <select class="form-control" id="exampleFormControlSelect2" name='categoProd' required>
-            <?php
-                    echo $selectCatego;
-                ?>
-            </select>
+            <input class='form-control'type="text" readonly name='cp' value="<?php echo $categoProdInput ?>">
+
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Prix</label>
