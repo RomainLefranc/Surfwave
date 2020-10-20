@@ -1,13 +1,12 @@
 $(document).ready(function () {
-    $('#btn-connexion').click(function (e) {
-        e.preventDefault();
-        $('#section-connexion').toggle("fold", 1000);
+    $('#btn-connexion').click(function () {
+        $('#section-connexion').toggle("fold", 1000); /* Affiche ou cache la section connexion avec un effet 'fold' */
     });
-    $('.qdp').click(function (event) {
+    $('.qdp').click(function (event) { 
         surnom = $(event.target).attr('alt');
         var url = `http://localhost/Mission8/index.php?action=API&equipier=${surnom}`
         $.get(url, function (data) {
-            question = ''
+            var question = ''
             data.resultat.qdp.forEach(qdp => {
                 question += 
                 `<div class="form-group">
@@ -33,7 +32,7 @@ $(document).ready(function () {
                     </div>
                 </div>
             </div>`
-            $("#histoire").append(modal);
+            $("#histoire").append(modal); /* Ajout de la modal dans le html */
             $('#exampleModalCenter').modal('show');
             $('#exampleModalCenter').on('hidden.bs.modal', function (e) {
                 $('#exampleModalCenter').remove();            

@@ -6,6 +6,7 @@
     <title>Admin</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_admin.css">
 </head>
 <body>
     <?php

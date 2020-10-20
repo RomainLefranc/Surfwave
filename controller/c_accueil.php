@@ -1,6 +1,7 @@
 <?php
 include "model/m_accueil.php";
 
+/* Préparation de la liste des tarifs */
 $listeTarification = getListeTarification();
 $htmlTarif = '';
 foreach ($listeTarification as $tarification) {
@@ -13,6 +14,7 @@ foreach ($listeTarification as $tarification) {
     </tr>';
 }
 
+/* Préparation de la liste des equipiers */
 $listeEquipier = getListeEquipier();
 $htmlEquipier = '';
 foreach ($listeEquipier as $equipier) {
@@ -27,16 +29,18 @@ foreach ($listeEquipier as $equipier) {
 }
 
 if (isset($_POST["login"]) && isset($_POST["mdp"])) {
-    if (verifUserExiste()) {
-        $_SESSION["user"] = $_POST["login"];
+    /* Récuperation des données du formulaire envoyé */
+    $login = htmlspecialchars($_POST['login']);
+    $mdp = htmlspecialchars($_POST['mdp']);
+    /* Verification de la validité du login et mdp */
+    if (verifUserExiste($login, $mdp)) {
+        $_SESSION["user"] = $login;
         header ('location: index.php?action=AD');
     } else {
         $_POST["erreur"] = 1;
-        $view = "accueil";
     }
-} else {
-    $view = "accueil";
 }
+$view = "accueil";
 
 
 ?>

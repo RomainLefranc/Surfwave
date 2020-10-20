@@ -17,8 +17,6 @@
                <div class="row">
                   <?php
                      echo $htmlEquipier;
-
-
                   ?>
                </div>
             </div>

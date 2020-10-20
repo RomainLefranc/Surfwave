@@ -1,5 +1,5 @@
 <?php
-
+    /* Récupère la liste des tarifications */
     function getListeTarification() {
         include "pdo.php";
 
@@ -16,15 +16,13 @@
         $resultat = $requete->fetchall();
         return $resultat;
     }
-
-    function verifUserExiste () {
+    
+    /* Compare */
+    function verifUserExiste ($login,$mdp) {
         $listeUsers = array (
             ["1","1"],
             ["Lefranc46@gmail.com","1"]
         );
-    
-        $login = htmlspecialchars($_POST["login"]);
-        $mdp = htmlspecialchars($_POST["mdp"]);
         $userExiste = false;
         foreach ($listeUsers as $user) {
             if ($user[0] == $login && $user[1] == $mdp) {
