@@ -5,3 +5,10 @@
 header {
     height: 500px;
 }
+
+a {
+    color: #ffffff;
+    text-transform: none;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #000;
+}
