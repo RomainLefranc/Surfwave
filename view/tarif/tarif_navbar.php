@@ -11,7 +11,7 @@
                     Gestion Tarif
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="index.php?action=T&crud=r">Liste tarif</a>
+                        <a class="dropdown-item" href="index.php?action=T">Liste tarif</a>
                     </div>
                 </li>
             </ul>

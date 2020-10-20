@@ -1,52 +1,18 @@
-<div class="container mt-3">
+<div class="container d-flex justify-content-center mt-3">
     <div class='bloc boutique'>
-        <?php
-            if (isset($_GET['msg'])) {
-                switch (true) {
-                    case $_GET['msg'] == 1:
-                        $msg = "Durée invalide";
-                        $typeMsg = 'danger';
-                        break;
-                    case $_GET['msg'] == 2:
-                        $msg = "Categorie de produit invalide";
-                        $typeMsg = 'danger';
-                        break;
-                    case $_GET['msg'] == 3:
-                        $msg = "Suppression effectué";
-                        $typeMsg = 'success';
-                        break;
-                    case $_GET['msg'] == 4:
-                        $msg = "Modification impossible";
-                        $typeMsg = 'danger';
-                        break;
-                    case $_GET['msg'] == 5:
-                        $msg = "Ce tarif existe déjà impossible";
-                        $typeMsg = 'danger';
-                        break;
-                    case $_GET['msg'] == 6:
-                        $msg = "Ajout effectué";
-                        $typeMsg = 'success';
-                        break;
-                }
-                echo '<div class="alert alert-'.$typeMsg.' alert-dismissible fade show" role="alert">'.$msg.'
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>';
-            }
-        ?>
-        <table class='table table-hover text-center'>
-            <thead class='thead-dark'>
-                <th class="rounded-left border-0 align-middle">Libellé Durée</th>
-                <th class="border-0 align-middle">Planche de surf</th>
-                <th class="border-0 align-middle">Bodyboard</th>
-                <th class="rounded-right border-0 align-middle">Combinaison</th>
-            </thead>
-            <tbody>
-                <?php
-                    echo $htmlTarif
-                ?>
-            </tbody>
-        </table>
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Durée </label>
+                <input class='form-control'type="text" readonly name='cd' value='<?php echo $resultat['codeDuree'] ?>'>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect2">Categorie Produit</label>
+                <input class='form-control'type="text" readonly name='cp' value="<?php echo $resultat['categoProd'] ?>">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Prix</label>
+                <input class='form-control'type="number" name='prix' value='<?php  echo $resultat['prixLocation']  ?>' readonly>
+            </div>
+        </form>
     </div>
 </div>

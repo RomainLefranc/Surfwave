@@ -12,12 +12,17 @@
 <body>
     <?php
         include "tarif/tarif_navbar.php";
-        if ($_GET['crud'] == 'c') {
-            include "tarif/tarif_create.php";
-        } elseif ($_GET['crud'] == 'r') {
-            include "tarif/tarif_read.php";
-        } elseif ($_GET['crud'] == 'u') {
-            include "tarif/tarif_update.php";
+        
+        if (isset($_GET['crud'])) {
+            if ($_GET['crud'] == 'c') {
+                include "tarif/tarif_create.php";
+            } elseif ($_GET['crud'] == 'r') {
+                include "tarif/tarif_read.php";
+            } elseif ($_GET['crud'] == 'u') {
+                include "tarif/tarif_update.php";
+            }        
+        } else {
+            include "tarif/tarif.php";        
         }
     ?>
     <script src="assets/jquery/jquery.min.js"></script>

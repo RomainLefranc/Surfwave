@@ -17,7 +17,7 @@ function verifcodeDureeValide($codeDuree) {
     if ($resultat[0][0] == true) {
         return $resultat[0][0];
     } else {
-        header("location: index.php?action=T&crud=r&msg=1");
+        header("location: index.php?action=T&msg=1");
     }
 }
 function verifCategoProdValide($categoProd) {
@@ -28,7 +28,7 @@ function verifCategoProdValide($categoProd) {
     if ($resultat[0][0] == true) {
         return $resultat[0][0];
     } else {
-        header("location: index.php?action=T&crud=r&msg=2");
+        header("location: index.php?action=T&msg=2");
     }
 }
 
