@@ -33,9 +33,9 @@ $(document).ready(function () {
                 </div>
             </div>`
             $("#histoire").append(modal); /* Ajout de la modal dans le html */
-            $('#exampleModalCenter').modal('show');
+            $('#exampleModalCenter').modal('show'); /* Affichage de la modal */
             $('#exampleModalCenter').on('hidden.bs.modal', function (e) {
-                $('#exampleModalCenter').remove();            
+                $('#exampleModalCenter').remove();     /* Suppression de la modal lorsque l'utilisateur ferme la modal */       
             })
         })
     })

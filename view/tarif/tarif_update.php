@@ -33,7 +33,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Prix</label>
-                <input class='form-control'type="number" name='prix' value='<?php  echo $resultat['prixLocation']  ?>' required>
+                <input class='form-control'type="number" id='inputPrix' name='prix' value='<?php  echo $resultat['prixLocation']  ?>' required>
             </div>
             <button type="submit" class="btn btn-primary mb-2">Modifier tarif</button>
         </form>
