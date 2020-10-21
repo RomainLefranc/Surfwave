@@ -28,11 +28,13 @@
                         $typeMsg = 'danger';                       
                      break;
                 }
-                echo '<div class="alert alert-'.$typeMsg.' alert-dismissible fade show" role="alert">'.$msg.'
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>';
+                echo '
+                <div class="alert alert-'.$typeMsg.' alert-dismissible fade show" role="alert">'.$msg.'
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                ';
             }
         ?>
         <table class='table table-hover'>

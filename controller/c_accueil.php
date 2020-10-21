@@ -39,5 +39,6 @@
             $_POST["erreur"] = 1;
         }
     }
+    
     $view = "accueil";
 ?>

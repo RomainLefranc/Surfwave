@@ -6,12 +6,14 @@
                 $typeMsg = 'danger';
                 break;
         }
-        echo '<div class="alert alert-'.$typeMsg.' alert-dismissible fade show m-1" role="alert">
-                '.$msg.'
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>';
+        echo '
+        <div class="alert alert-'.$typeMsg.' alert-dismissible fade show m-1" role="alert">
+            '.$msg.'
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        ';
     }
 ?>
 <div class="container d-flex justify-content-center mt-3">
@@ -32,7 +34,6 @@
             <button type="submit" class="btn btn-primary mb-2">Ajouter tarif</button>
         </form>    
     </div>
-
 </div>
 
 

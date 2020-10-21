@@ -3,11 +3,10 @@
         <div class="bloc" id="histoire">
             <div id="equipe">
                 <h2>Notre équipe</h2>
-
                 <div class="row">
-                <?php
-                    echo $htmlEquipier;
-                ?>
+                    <?php
+                        echo $htmlEquipier;
+                    ?>
                 </div>
             </div>
         </div>

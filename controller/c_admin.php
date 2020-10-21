@@ -1,5 +1,6 @@
 <?php
     if (verifSession()) {
+
         include "model/m_accueil.php";
 
         /* Préparation de la liste des tarifs */
@@ -21,13 +22,13 @@
         foreach ($listeEquipier as $equipier) {
             $htmlEquipier.='
             <div class="col-lg-4 col-md-6 col-sm-6">
-        
                 <img src="model/data/'.$equipier['surnomEq'].'.jpg" alt="'.$equipier['surnomEq'].'" class="rounded-circle img-fluid qdp">
                 <p class="nom">'.$equipier['surnomEq'].'</p>
                 <p class="role">'.$equipier['fonctionEq'].'</p>
             </div>
             ';
         }
+
         $view = 'admin';
     }
 ?>

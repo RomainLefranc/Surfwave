@@ -16,7 +16,6 @@
         $resultat = $requete->fetchall();
         return $resultat;
     }
-    
     function verifUserExiste ($login,$mdp) {
         $listeUsers = array (
             ["1","1"],
@@ -30,7 +29,6 @@
         }
         return $userExiste;
     }
-
     function getListeEquipier() {
         include "pdo.php";
 
@@ -41,7 +39,6 @@
         $resultat = $requete->fetchall();
         return $resultat;    
     }
-
 ?>
 
 

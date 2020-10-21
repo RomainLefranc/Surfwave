@@ -40,10 +40,8 @@ if (verifSession()) {
                                         $resultat = getTarif($codeDureeInput,$categoProdInput);
                                         break;
                                     case $_GET['crud'] == 'u':
-                                        if (isset($_POST['prix'])) {
-                
-                                            $prixOutput = htmlspecialchars($_POST['prix']);
-                                    
+                                        if (isset($_POST['prix'])) {                
+                                            $prixOutput = htmlspecialchars($_POST['prix']);                                   
                                             if (verifPrix($prixOutput)) {
                                                 updateTarif($codeDureeInput, $categoProdInput, $prixOutput);
                                                 /* Msg = Modification effectué */
@@ -51,8 +49,7 @@ if (verifSession()) {
                                             } else {
                                                 /* Msg = Prix invalide */
                                                 $_POST['msg'] = 2;                     
-                                            }
-                                            
+                                            }                                           
                                         }
                                         $resultat = getTarif($codeDureeInput, $categoProdInput);                                    
                                         break;
@@ -65,8 +62,7 @@ if (verifSession()) {
                             } else {
                                 /* Msg = Ce tarif n'existe pas */
                                 header("location: index.php?action=T&msg=7");                                    
-                            }
-                            
+                            }                            
                         }
                         break;    
                 }

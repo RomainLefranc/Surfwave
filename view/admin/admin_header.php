@@ -16,7 +16,6 @@
                 </ul>
                 <a class="btn btn-primary" href="index.php?action=D" role="button">Se deconnecter</a>
             </div>
-            
         </div>
     </nav>
 </header>
