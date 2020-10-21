@@ -1,5 +1,5 @@
 <div class="container mt-3">
-    <div class='bloc boutique'>
+    <div class='bloc' id='coursdesurf'>
         <?php
             if (isset($_GET['msg'])) {
                 switch (true) {
