@@ -11,6 +11,9 @@
 <body>
     <?php
         include "admin/admin_header.php";
+
+        include "admin/admin_tarif.php";
+        include "admin/admin_equipier.php";        
         include "admin/admin_footer.php";
     ?>
     <script src="assets/jquery/jquery.js"></script>

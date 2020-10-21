@@ -12,55 +12,61 @@ if (verifSession()) {
 
                 switch (true) {
                     case $_GET['crud'] == 'c':
-                        if (verifcodeDureeValide($codeDureeInput) && verifCategoProdValide($categoProdInput) && !verifTarifExiste($codeDureeInput, $categoProdInput)) {
-                            if (isset($_POST['prix'])) {
-                                $prixOutput = htmlspecialchars($_POST['prix']);
-                                if (verifPrix($prixOutput)) {
-                                    ajoutTarif($codeDureeInput, $categoProdInput, $prixOutput);
-                                    /* Msg = Ajout effectué */
-                                    header("location: index.php?action=T&msg=6");        
-                                } else {
-                                    /* Msg = Prix invalide */
-                                    $_POST['msg'] = 1;        
-                                }   
-                            }
-                        } else {
-                            /* Msg = Tarif déjà existant */
-                            header("location: index.php?action=T&msg=5");   
+                        if (verifcodeDureeValide($codeDureeInput) && verifCategoProdValide($categoProdInput)) {
+                            if (!verifTarifExiste($codeDureeInput, $categoProdInput)) {
+                                if (isset($_POST['prix'])) {
+                                    $prixOutput = htmlspecialchars($_POST['prix']);
+                                    if (verifPrix($prixOutput)) {
+                                        ajoutTarif($codeDureeInput, $categoProdInput, $prixOutput);
+                                        /* Msg = Ajout effectué */
+                                        header("location: index.php?action=T&msg=6");        
+                                    } else {
+                                        /* Msg = Prix invalide */
+                                        $_POST['msg'] = 1;        
+                                    }   
+                                }                            
+                            } else {
+                                /* Msg = Tarif déjà existant */
+                                header("location: index.php?action=T&msg=5");   
+                            } 
+
                         }                           
                         break;
-                    case $_GET['crud'] == 'c' || $_GET['crud'] == 'r' ||  $_GET['crud'] == 'u' || $_GET['crud'] == 'd':
-                        if (verifcodeDureeValide($codeDureeInput) && verifCategoProdValide($categoProdInput) && verifTarifExiste($codeDureeInput, $categoProdInput)){
-                            switch (true) {
-                                case $_GET['crud'] == 'r':
-                                    $resultat = getTarif($codeDureeInput,$categoProdInput);
-                                    break;
-                                case $_GET['crud'] == 'u':
-                                    if (isset($_POST['prix'])) {
-            
-                                        $prixOutput = htmlspecialchars($_POST['prix']);
-                                
-                                        if (verifPrix($prixOutput)) {
-                                            updateTarif($codeDureeInput, $categoProdInput, $prixOutput);
-                                            /* Msg = Modification effectué */
-                                            $_POST['msg'] = 1;        
-                                        } else {
-                                            /* Msg = Prix invalide */
-                                            $_POST['msg'] = 2;                     
+                    case $_GET['crud'] == 'r' ||  $_GET['crud'] == 'u' || $_GET['crud'] == 'd':
+                        if (verifcodeDureeValide($codeDureeInput) && verifCategoProdValide($categoProdInput)){
+                            if (verifTarifExiste($codeDureeInput, $categoProdInput)) {
+                                switch (true) {
+                                    case $_GET['crud'] == 'r':
+                                        $resultat = getTarif($codeDureeInput,$categoProdInput);
+                                        break;
+                                    case $_GET['crud'] == 'u':
+                                        if (isset($_POST['prix'])) {
+                
+                                            $prixOutput = htmlspecialchars($_POST['prix']);
+                                    
+                                            if (verifPrix($prixOutput)) {
+                                                updateTarif($codeDureeInput, $categoProdInput, $prixOutput);
+                                                /* Msg = Modification effectué */
+                                                $_POST['msg'] = 1;        
+                                            } else {
+                                                /* Msg = Prix invalide */
+                                                $_POST['msg'] = 2;                     
+                                            }
+                                            
                                         }
-                                        
-                                    }
-                                    $resultat = getTarif($codeDureeInput, $categoProdInput);                                    
-                                    break;
-                                case $_GET['crud'] == 'd':
-                                    deleteTarif($codeDureeInput,$categoProdInput);
-                                    /* Msg = Suppression effectué */
-                                    header("location: index.php?action=T&msg=3");                                     
-                                    break;
+                                        $resultat = getTarif($codeDureeInput, $categoProdInput);                                    
+                                        break;
+                                    case $_GET['crud'] == 'd':
+                                        deleteTarif($codeDureeInput,$categoProdInput);
+                                        /* Msg = Suppression effectué */
+                                        header("location: index.php?action=T&msg=3");                                     
+                                        break;
+                                }                            
+                            } else {
+                                /* Msg = Ce tarif n'existe pas */
+                                header("location: index.php?action=T&msg=7");                                    
                             }
-                        } else {
-                            /* Msg = Ce tarif n'existe pas */
-                            header("location: index.php?action=T&msg=7");                                    
+                            
                         }
                         break;    
                 }
