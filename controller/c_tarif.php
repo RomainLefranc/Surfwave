@@ -1,7 +1,7 @@
 <?php
 include "model/m_tarif.php";
 
-if (verifSession()) {
+if (isset($_SESSION['user'])) {
     if (isset($_GET['crud'])) {
         switch (true) {
             /* CRUD valide */
@@ -110,5 +110,7 @@ if (verifSession()) {
         }  
         $view = 'tarif';        
     }
+} else {
+    $view = '403';
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-    if (verifSession()) {
+    if (isset($_SESSION['user'])) {
 
         include "model/m_accueil.php";
 
@@ -30,5 +30,7 @@
         }
 
         $view = 'admin';
+    } else {
+        $view = '403';
     }
 ?>

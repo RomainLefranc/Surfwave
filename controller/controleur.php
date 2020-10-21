@@ -14,7 +14,8 @@
         if (isset($_SESSION["user"])) {
             return true;
         } else {
-            $view = "403";
+            $view = '403';
+            return false;
         }
     }
 
