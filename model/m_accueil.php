@@ -17,7 +17,6 @@
         return $resultat;
     }
     
-    /* Compare */
     function verifUserExiste ($login,$mdp) {
         $listeUsers = array (
             ["1","1"],
