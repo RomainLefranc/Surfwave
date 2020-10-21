@@ -32,39 +32,14 @@ function verifCategoProdValide($categoProd) {
     }
 }
 
-
-/* CREATE */
-function getListeDuree() {
-    include "pdo.php";
-    $requete = $pdo->prepare('SELECT codeDuree FROM DUREE');
-    $requete->execute();
-    $resultat = $requete->fetchall();
-    return $resultat;
-}
-function getListeCategorie() {
-    include "pdo.php";
-    $requete = $pdo->prepare('SELECT categoProd FROM CatProd');
-    $requete->execute();
-    $resultat = $requete->fetchall();
-    return $resultat;
-}
-function ajoutTarif($codeDuree, $categoProd, $prix) {
-    include "pdo.php";
-    $requete = $pdo->prepare('INSERT INTO tarification VALUES (:codeDuree, :categoProd, :prix)');
-    $requete->execute(["codeDuree" => $codeDuree, "categoProd" => $categoProd, "prix" => $prix]);
-}
-
-
-/* READ */
+/* READ + */
 function getListeTarification() {
     include "pdo.php";
-
     $requete = $pdo->prepare(
         'SELECT codeDuree,libDuree,
         (SELECT prixLocation FROM TARIFICATION WHERE categoProd = "PS" AND TARIFICATION.codeDuree = Duree.codeDuree) AS prixLocationPS,
         (SELECT prixLocation FROM TARIFICATION WHERE categoProd = "BB" AND TARIFICATION.codeDuree = Duree.codeDuree) AS prixLocationBB,
         (SELECT prixLocation FROM TARIFICATION WHERE categoProd = "CO" AND TARIFICATION.codeDuree = Duree.codeDuree) AS prixLocationCO
-
         FROM DUREE 
         ORDER BY RIGHT(codeDuree,1)
         '
@@ -74,15 +49,23 @@ function getListeTarification() {
     return $resultat;
 }
 
-/* UPDATE */
+/* CREATE */
+function ajoutTarif($codeDuree, $categoProd, $prix) {
+    include "pdo.php";
+    $requete = $pdo->prepare('INSERT INTO tarification VALUES (:codeDuree, :categoProd, :prix)');
+    $requete->execute(["codeDuree" => $codeDuree, "categoProd" => $categoProd, "prix" => $prix]);
+}
+
+/* READ */
 function getTarif($codeDuree, $categoProd) {
     include "pdo.php";
-    $requete = $pdo->prepare('SELECT * FROM Tarification WHERE codeDuree = :codeDuree AND categoProd = :categoProd');
+    $requete = $pdo->prepare('SELECT Tarification.categoProd, codeDuree,libDuree,prixLocation FROM Tarification INNER JOIN catProd ON Tarification.categoProd = catProd.categoProd WHERE codeDuree = :codeDuree AND Tarification.categoProd = :categoProd');
     $requete->execute(["codeDuree" => $codeDuree, "categoProd" => $categoProd]);
     $resultat = $requete->fetchall();
     return $resultat[0];
-
 }
+
+/* UPDATE */
 function updateTarif($codeDuree, $categoProd, $prix) {
     include "pdo.php";
     $requete = $pdo->prepare('UPDATE Tarification SET prixLocation = :prix WHERE codeDuree = :codeDuree AND categoProd = :categoProd ');

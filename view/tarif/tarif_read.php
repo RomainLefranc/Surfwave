@@ -7,7 +7,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleFormControlSelect2">Categorie Produit</label>
-                <input class='form-control'type="text" readonly name='cp' value="<?php echo $resultat['categoProd'] ?>">
+                <input class='form-control'type="text" readonly name='cp' value="<?php echo $resultat['libDuree'] ?>">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Prix</label>

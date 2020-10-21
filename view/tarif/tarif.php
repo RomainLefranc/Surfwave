@@ -15,10 +15,6 @@
                         $msg = "Suppression effectué";
                         $typeMsg = 'success';
                         break;
-                    case $_GET['msg'] == 4:
-                        $msg = "Modification impossible";
-                        $typeMsg = 'danger';
-                        break;
                     case $_GET['msg'] == 5:
                         $msg = "Ce tarif existe déjà impossible";
                         $typeMsg = 'danger';
@@ -27,6 +23,10 @@
                         $msg = "Ajout effectué";
                         $typeMsg = 'success';
                         break;
+                    case $_GET['msg'] == 7:
+                        $msg = "Ce tarif n'existe pas";
+                        $typeMsg = 'danger';                       
+                     break;
                 }
                 echo '<div class="alert alert-'.$typeMsg.' alert-dismissible fade show" role="alert">'.$msg.'
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
