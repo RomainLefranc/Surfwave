@@ -22,7 +22,7 @@
         foreach ($listeEquipier as $equipier) {
             $htmlEquipier.='
             <div class="col-lg-4 col-md-6 col-sm-6">
-                <img src="model/data/'.$equipier['surnomEq'].'.jpg" alt="'.$equipier['surnomEq'].'" class="rounded-circle img-fluid qdp">
+                <img src="model/data/'.$equipier['codeEq'].'.jpg" alt="'.$equipier['surnomEq'].'" class="rounded-circle img-fluid qdp">
                 <p class="nom">'.$equipier['surnomEq'].'</p>
                 <p class="role">'.$equipier['fonctionEq'].'</p>
             </div>

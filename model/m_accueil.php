@@ -33,7 +33,7 @@
         include "pdo.php";
 
         $requete = $pdo->prepare(
-            'SELECT surnomEq, fonctionEq FROM equipier'
+            'SELECT codeEq, surnomEq, fonctionEq FROM equipier'
         );
         $requete->execute();
         $resultat = $requete->fetchall();
