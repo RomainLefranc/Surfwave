@@ -118,20 +118,30 @@ if (isset($_SESSION['user'])) {
             } 
             return $crud;           
         }
+        function testVide($prixLocation) {
+            if ($prixLocation == null) {
+                return $prixLocation;
+            } else {
+                return $prixLocation.' €';
+            }
+
+        }
         foreach ($listeTarification as $tarification) {
 
             $crudPS = definitionBoutonCrud($tarification['prixLocationPS'],$tarification["codeDuree"],'PS');
             $crudBB = definitionBoutonCrud($tarification['prixLocationBB'],$tarification["codeDuree"],'BB');
             $crudCO = definitionBoutonCrud($tarification['prixLocationCO'],$tarification["codeDuree"],'CO');
-
+            $tarification["prixLocationPS"] = testVide($tarification["prixLocationPS"]);
+            $tarification["prixLocationBB"] = testVide($tarification["prixLocationBB"]);
+            $tarification["prixLocationCO"] = testVide($tarification["prixLocationCO"]);
             $htmlTarif.= '
             <tr>
                 <td class="align-middle">'.$tarification["libDuree"].'</td>
-                <td class="align-middle">'.$tarification["prixLocationPS"].' €</td>
+                <td class="align-middle">'.$tarification["prixLocationPS"].'</td>
                 <td class="align-middle">'.$crudPS.'</td>
-                <td class="align-middle">'.$tarification["prixLocationBB"].' €</td>
+                <td class="align-middle">'.$tarification["prixLocationBB"].'</td>
                 <td class="align-middle">'.$crudBB.'</td>
-                <td class="align-middle">'.$tarification["prixLocationCO"].' €</td>
+                <td class="align-middle">'.$tarification["prixLocationCO"].'</td>
                 <td class="align-middle">'.$crudCO.'</td>
             </tr>
             ';
