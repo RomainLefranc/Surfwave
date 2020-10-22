@@ -7,16 +7,15 @@
         <div class="collapse navbar-collapse" id="navbarsExample07">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                    Gestion Tarif
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Gestion Equipe
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="index.php?action=E">Liste equipier</a>
+                    </div>
                 </li>
             </ul>
         </div>
-        <?php
-            if (isset($_GET['crud'])) {
-                echo'<a class="btn btn-primary" href="index.php?action=T" role="button">Retour</a>';
-            } else {
-                echo '<a class="btn btn-primary" href="index.php?action=AD" role="button">Retour</a>';
-            }
-        ?>
+        <a class="btn btn-primary" href="index.php?action=AD" role="button">Retour</a>
     </div>
 </nav>

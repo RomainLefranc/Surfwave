@@ -1,6 +1,6 @@
 <div class="d-none d-md-none d-xl-block">
     <div class="container mt-3">
-        <div class="bloc location">
+        <div class="bloc location ">
             <h2>Tarifs</h2>
             <table class="table">
                 <thead>

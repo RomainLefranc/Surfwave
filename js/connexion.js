@@ -3,8 +3,8 @@ $(document).ready(function () {
         $('#section-connexion').toggle("fold", 1000); /* Affiche ou cache la section connexion avec un effet 'fold' */
     })
     $('.qdp').click(function (event) { 
-        surnom = $(event.target).attr('alt');
-        var url = `http://localhost/Mission8/index.php?action=API&equipier=${surnom}`;
+        var equipier = $(event.target).attr('equipier');
+        var url = `http://localhost/Mission8/index.php?action=API&equipier=${equipier}`;
         $.get(url, function (data) {
             var question = '';
             data.resultat.qdp.forEach(qdp => {

@@ -37,18 +37,24 @@
                 ';
             }
         ?>
-        <table class='table table-hover'>
-            <thead class='thead-dark'>
-                <th class="rounded-left border-0 align-middle">Libellé Durée</th>
-                <th colspan="2" class="border-0 align-middle">Planche de surf</th>
-                <th colspan="2" class="border-0 align-middle">Bodyboard</th>
-                <th colspan="2" class="rounded-right border-0 align-middle">Combinaison</th>
-            </thead>
-            <tbody>
-                <?php
-                    echo $htmlTarif
-                ?>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class='table table-hover text-center'>
+                <thead class='thead-dark'>
+                    <th class="rounded-left border-0 align-middle">Libellé Durée</th>
+                    <th class="border-0 align-middle">Planche de surf</th>
+                    <th class="border-0 align-middle"></th>
+                    <th class="border-0 align-middle">Bodyboard</th>
+                    <th class="border-0 align-middle"></th>
+                    <th class="border-0 align-middle">Combinaison</th>
+                    <th class="rounded-right border-0 align-middle"></th>
+                </thead>
+                <tbody>
+                    <?php
+                        echo $htmlTarif
+                    ?>
+                </tbody>
+            </table>        
+        </div>
+
     </div>
 </div>

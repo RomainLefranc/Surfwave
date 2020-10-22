@@ -2,7 +2,7 @@
 
 session_start();
 include "controller/tools.php";/* Outils */
-$pages = array (["A","accueil"],["AD","admin"],['D','deconnexion'],["T","Tarif"],['API','api']);
+$pages = array (["A","accueil"],["AD","admin"],['D','deconnexion'],["T","Tarif"],['API','api'],['E','equipe']);
 $actionExiste = false;
 if (isset($_GET['action'])) {
     foreach ($pages as $page) {
