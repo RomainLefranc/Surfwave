@@ -124,7 +124,3 @@ INSERT INTO TARIFICATION VALUES
 ('4j','CO',55),
 ('5j','CO',65),
 ('6j','CO',75);
-
-
-
-
