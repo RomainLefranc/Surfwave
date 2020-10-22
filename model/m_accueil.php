@@ -2,7 +2,6 @@
     /* Récupère la liste des tarifications */
     function getListeTarification() {
         include "pdo.php";
-
         $requete = $pdo->prepare(
             'SELECT libDuree,
             (SELECT prixLocation FROM TARIFICATION WHERE categoProd = "PS" AND TARIFICATION.codeDuree = Duree.codeDuree) AS prixLocationPS,

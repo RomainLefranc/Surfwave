@@ -28,7 +28,6 @@
             </div>
             ';
         }
-
         $view = 'admin';
     } else {
         $view = '403';
