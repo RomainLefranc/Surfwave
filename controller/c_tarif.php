@@ -131,9 +131,11 @@ if (isset($_SESSION['user'])) {
             $crudPS = definitionBoutonCrud($tarification['prixLocationPS'],$tarification["codeDuree"],'PS');
             $crudBB = definitionBoutonCrud($tarification['prixLocationBB'],$tarification["codeDuree"],'BB');
             $crudCO = definitionBoutonCrud($tarification['prixLocationCO'],$tarification["codeDuree"],'CO');
+
             $tarification["prixLocationPS"] = testVide($tarification["prixLocationPS"]);
             $tarification["prixLocationBB"] = testVide($tarification["prixLocationBB"]);
             $tarification["prixLocationCO"] = testVide($tarification["prixLocationCO"]);
+            
             $htmlTarif.= '
             <tr>
                 <td class="align-middle">'.$tarification["libDuree"].'</td>
