@@ -4,15 +4,21 @@
         include "model/m_accueil.php";
 
         /* Préparation de la liste des tarifs */
+
         $listeTarification = getListeTarification();
         $htmlTarif = '';
         foreach ($listeTarification as $tarification) {
+
+            $tarification["prixLocationPS"] = testVide($tarification["prixLocationPS"]);
+            $tarification["prixLocationBB"] = testVide($tarification["prixLocationBB"]);
+            $tarification["prixLocationCO"] = testVide($tarification["prixLocationCO"]);
+
             $htmlTarif.= 
             '<tr>
                 <td class="align-middle">'.$tarification["libDuree"].'</td>
-                <td class="align-middle">'.$tarification["prixLocationPS"].' €</td>
-                <td class="align-middle">'.$tarification["prixLocationBB"].' €</td>
-                <td class="align-middle">'.$tarification["prixLocationCO"].' €</td>
+                <td class="align-middle">'.$tarification["prixLocationPS"].'</td>
+                <td class="align-middle">'.$tarification["prixLocationBB"].'</td>
+                <td class="align-middle">'.$tarification["prixLocationCO"].'</td>
             </tr>';
         }
         
