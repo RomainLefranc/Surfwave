@@ -14,14 +14,28 @@ if (isset($_SESSION['user'])) {
                             if (isset($_POST['surnom']) && isset($_POST['nom']) && isset($_POST['fonction']) && isset($_FILES['image'])) {
                                 
                                 $dossierImage = 'model/data/';
+                                
                                 $fichier = basename($_FILES['image']['name']);
                                 $surnom = htmlspecialchars($_POST['surnom']);
                                 $nom = htmlspecialchars($_POST['nom']);
                                 $fonction = htmlspecialchars($_POST['fonction']);
-                                move_uploaded_file( $_FILES['image']['tmp_name'],'model/data/' . $fichier);
+
+                                $ext = explode(".", $_FILES["image"]["name"]);
+                                $ext = end($ext);
+                                $nomfichier = $codeEq.'.'.$ext;
+                                var_dump($_FILES['image']);
+
+                                $chemin = "model/data/". $nomfichier;
+
+                                if(move_uploaded_file( $_FILES['image']['tmp_name'], $chemin)) {
+                                    echo 'oui';
+                                } else {
+                                    echo 'non';
+                                }
+
                                 AjoutEquipier($codeEq,$surnom,$nom,$fonction);
-                                header("location: index.php?action=E&msg=4");   
-                            }  else {
+/*                                 header("location: index.php?action=E&msg=4");   
+ */                            }  else {
                                 /* $_POST['msg'] = 2; */
                             }
                         } else {

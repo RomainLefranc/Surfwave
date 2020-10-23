@@ -33,7 +33,7 @@
                 <input class='form-control' type="text" name='fonction' required>
             </div>
             <div class="form-group">
-                <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+                <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
                 <input type="file" name="image" required>
             </div>
             <button type="submit" class="btn btn-primary mb-2">Créer equipier</button>
