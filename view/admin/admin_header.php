@@ -10,7 +10,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?action=T">Gestion Tarif</a>
                     </li>
-                    <a class="nav-link" href="index.php?action=E">Gestion Equipe</a>
                 </ul>
                 <a class="btn btn-primary" href="index.php?action=D" role="button">Se deconnecter</a>
             </div>
