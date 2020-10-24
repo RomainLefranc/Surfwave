@@ -18,12 +18,12 @@
     }
     function verifUserExiste ($login,$mdp) {
         $listeUsers = array (
-            ["1","1"],
-            ["Lefranc46@gmail.com","1"]
+            ["login" => "1","mdp" => "1"],
+            ["login" => "Lefranc46@gmail.com","mdp" => "1"]
         );
         $userExiste = false;
         foreach ($listeUsers as $user) {
-            if ($user[0] == $login && $user[1] == $mdp) {
+            if ($user["login"] == $login && $user["mdp"] == $mdp) {
                 $userExiste = true;
             }
         }
