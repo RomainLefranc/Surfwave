@@ -3,18 +3,15 @@
 
 
 /* Dictionnaire de données
+
 CREATE
-POST
 1 = Prix invalide
 
-
 UPDATE
-POST
 1 = Modification effectué
 2 = Prix invalide
 
 READ +
-GET
 1 = Duree invalide
 2 = Categorie de produit invalide
 3 = Suppression effectué
@@ -22,9 +19,6 @@ GET
 5 = Tarif déja existant
 6 = Ajout effectué
 7 = Tarif inexistant
-
-
-
 
 */
 include "model/m_tarif.php";

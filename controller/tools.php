@@ -8,6 +8,7 @@
             return false;
         }
     }
+    /* Verifie la valeur du prix de location */
     function testVide($prixLocation) {
         if ($prixLocation == null) {
             return 'Non renseigné';

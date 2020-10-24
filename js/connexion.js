@@ -2,6 +2,7 @@ $(document).ready(function () {
     $('#btn-connexion').click(function () {
         $('#section-connexion').toggle("fold", 1000); /* Affiche ou cache la section connexion avec un effet 'fold' */
     })
+    
     $('.qdp').click(function (event) { 
         var equipier = $(event.target).attr('equipier');
         var url = `http://localhost/Mission8/index.php?action=API&equipier=${equipier}`;

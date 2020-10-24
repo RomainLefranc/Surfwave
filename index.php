@@ -1,13 +1,24 @@
 <?php
 
 session_start();
+
 include "controller/tools.php";/* Outils */
-$pages = array (["A","accueil"],["AD","admin"],['D','deconnexion'],["T","Tarif"],['API','api'],['E','equipe']);
+
+$navigations = array (
+    ["action" => "A",     "controller" => "accueil"],
+    ["action" => "AD",    "controller" => "admin"],
+    ["action" => "D",     "controller" => "deconnexion"],
+    ["action" => "T",     "controller" => "tarif"],
+    ["action" => "API",   "controller" => "api"],
+    ["action" => "E",     "controller" => "equipe"]
+);
+
 $actionExiste = false;
-if (isset($_GET['action'])) {
-    foreach ($pages as $page) {
-        if ($page[0] == $_GET['action']) {
-            include "controller/c_$page[1].php";
+if (isset($_GET["action"])) {
+    $action = htmlspecialchars($_GET["action"]);
+    foreach ($navigations as $navigation) {
+        if ($navigation["action"] == $action) {
+            include 'controller/c_'.$navigation["controller"].'.php';
             include "view/v_$view.php";
             $actionExiste = true;
         }

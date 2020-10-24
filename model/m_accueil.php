@@ -1,7 +1,8 @@
 <?php
+    include "pdo.php";
     /* Récupère la liste des tarifications */
     function getListeTarification() {
-        include "pdo.php";
+        global $pdo;
         $requete = $pdo->prepare(
             'SELECT libDuree,
             (SELECT prixLocation FROM TARIFICATION WHERE categoProd = "PS" AND TARIFICATION.codeDuree = Duree.codeDuree) AS prixLocationPS,
@@ -29,7 +30,7 @@
         return $userExiste;
     }
     function getListeEquipier() {
-        include "pdo.php";
+        global $pdo;
 
         $requete = $pdo->prepare(
             'SELECT codeEq, surnomEq, fonctionEq FROM equipier'

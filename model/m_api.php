@@ -1,6 +1,8 @@
 <?php
+    include "pdo.php";
+
     function getQDP($codeEq) {
-        include "pdo.php";
+        global $pdo;
         $requete = $pdo->prepare('SELECT libQuest, reponse FROM qdp INNER JOIN equipier ON qdp.codeEq = equipier.codeEq INNER JOIN question ON qdp.idquest = question.idquest WHERE equipier.codeEq = :codeEq');
         $requete->execute(["codeEq" => $codeEq]);
         $resultat = $requete->fetchall(); 
