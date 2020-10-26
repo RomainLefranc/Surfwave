@@ -1,8 +1,8 @@
 <?php
 
     /* Verifie que le prix est supérieur à 0 et est inferieur a la limite de ce que BDD peut stocker */
-    function verifPrix() {
-        if (intval($_POST['prix']) > 0 && intval($_POST['prix']) < 999.99) {
+    function verifPrix($prix) {
+        if ( $prix > 0 && $prix < 999.99) {
             return true;    
         } else {
             return false;

@@ -39,6 +39,7 @@ if (isset($_SESSION['user'])) {
                             if (!verifTarifExiste($codeDureeInput, $categoProdInput)) {
                                 if (isset($_POST['prix'])) {
                                     $prixOutput = htmlspecialchars($_POST['prix']);
+                                    $prixOutput = intval($prixOutput);
                                     if (verifPrix($prixOutput)) {
                                         ajoutTarif($codeDureeInput, $categoProdInput, $prixOutput);
                                         /* Msg = Ajout effectué */
@@ -61,7 +62,8 @@ if (isset($_SESSION['user'])) {
                                         break;
                                     case $getCrud == 'u':
                                         if (isset($_POST['prix'])) {                
-                                            $prixOutput = htmlspecialchars($_POST['prix']);                                   
+                                            $prixOutput = htmlspecialchars($_POST['prix']);
+                                            $prixOutput = intval($prixOutput);
                                             if (verifPrix($prixOutput)) {
                                                 updateTarif($codeDureeInput, $categoProdInput, $prixOutput);
                                                 /* Msg = Modification effectué */
