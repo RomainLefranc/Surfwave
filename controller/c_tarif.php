@@ -15,7 +15,7 @@ READ +
 1 = Duree invalide
 2 = Categorie de produit invalide
 3 = Suppression effectué
-4
+4 = ////////////////////
 5 = Tarif déja existant
 6 = Ajout effectué
 7 = Tarif inexistant
@@ -67,7 +67,7 @@ if (isset($_SESSION['user'])) {
 
                                             $prixOutput = htmlspecialchars($_POST['prix']);
                                             $prixOutput = intval($prixOutput);
-                                            
+
                                             if (verifPrix($prixOutput)) {
                                                 updateTarif($codeDureeInput, $categoProdInput, $prixOutput);
                                                 /* Msg = Modification effectué */
