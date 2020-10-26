@@ -1,6 +1,10 @@
 <?php
 
-    /* Verifie que le prix est supérieur à 0 et est inferieur a la limite de ce que BDD peut stocker */
+    /* 
+    M : Verifie que le prix est supérieur à 0 et est inferieur a la limite de ce que BDD peut stocker
+    O : booléen
+    I : prix de location output
+    */
     function verifPrix($prix) {
         if ( $prix > 0 && $prix < 999.99) {
             return true;    
@@ -8,7 +12,11 @@
             return false;
         }
     }
-    /* Verifie la valeur du prix de location */
+    /* 
+    M : Verifie la valeur du prix de location
+    O : string
+    I : prix de location
+    */
     function testVide($prixLocation) {
         if ($prixLocation == null) {
             return 'Non renseigné';
@@ -17,6 +25,11 @@
         }
 
     }
+    /* 
+    M : Definie les bouton de CRUD en fonction de la valeur du prix de location
+    O : string
+    I : prix de location, codeDurée et nom de la colonne
+    */
     function definitionBoutonCrud($prixLocation,$codeDuree,$colonne) {
         $crud = '';
         if($prixLocation == null) {
