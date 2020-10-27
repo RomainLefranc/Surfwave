@@ -1,7 +1,9 @@
 <div class="container  mt-3">
     <div class='bloc ' id='coursdesurf'>
-        <h2>Création d'un equipier</h2>
-        <form action="index.php?action=E&crud=u&ce=<?php  echo $codeEq  ?>" enctype='multipart/form-data' method="post">
+        <div class="text-center">
+            <img src="model/data/<?php echo $equipier['codeEq']?>.jpg" alt="<?php echo $equipier['surnomEq']?>" class="rounded-circle img-fluid qdp">
+        </div>
+        <form action="index.php?action=E&crud=u&ce=<?php  echo $equipier['codeEq']  ?>" enctype='multipart/form-data' method="post">
             <div class="form-group">
                 <label for="codeEquipier">Code Equipier</label>
                 <input type="text" class="form-control" id="codeEq" value='<?php  echo $equipier['codeEq']  ?>' readonly>

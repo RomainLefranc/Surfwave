@@ -1,5 +1,8 @@
 <div class="container  mt-3">
     <div class='bloc ' id='coursdesurf'>
+        <div class="text-center">
+            <img src="model/data/<?php echo $equipier['codeEq']?>.jpg" alt="<?php echo $equipier['surnomEq']?>" class="rounded-circle img-fluid qdp">
+        </div>
         <form>
             <div class="form-group">
                 <label for="codeEquipier">Code Equipier</label>

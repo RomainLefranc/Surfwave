@@ -18,7 +18,7 @@ if (isset($_SESSION['user'])) {
                                 $newfilename = $codeEq . '.' . end($temp);
                                 $target_file = "model/data/" . $newfilename;
 
-                                if(verifImage($target_file)) {
+                                if(verifExtensionImageValide($target_file) && !verifImageExiste($target_file)) {
                                     $surnom = htmlspecialchars($_POST['surnom']);
                                     $nom = htmlspecialchars($_POST['nom']);
                                     $fonction = htmlspecialchars($_POST['fonction']);
@@ -57,7 +57,7 @@ if (isset($_SESSION['user'])) {
                                             $newfilename = $codeEq . '.' . end($temp);
                                             $target_file = "model/data/" . $newfilename;
 
-                                            if (verifImage($target_file)) {
+                                            if (verifExtensionImageValide($target_file) && verifImageExiste($target_file)) {
                                                 $chemin = 'model/data/'.$codeEq.'.jpg';
                                                 unlink($chemin);
                                                 move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);

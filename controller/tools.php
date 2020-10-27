@@ -47,9 +47,24 @@
     }
 
     function verifImage($target_file){
-        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        
 
         if(!file_exists($target_file) && $imageFileType = "jpg") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function verifExtensionImageValide($target_file) {
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        if ($imageFileType = "jpg") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function verifImageExiste($target_file) {
+        if (file_exists($target_file)) {
             return true;
         } else {
             return false;
