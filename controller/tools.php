@@ -1,14 +1,22 @@
 <?php
 
-    /* Verifie que le prix est supérieur à 0 et est inferieur a la limite de ce que BDD peut stocker */
-    function verifPrix() {
-        if (intval($_POST['prix']) > 0 && intval($_POST['prix']) < 99999999999.99) {
+    /* 
+    M : Verifie que le prix est supérieur à 0 et est inferieur a la limite de ce que BDD peut stocker
+    O : booléen
+    I : prix de location output
+    */
+    function verifPrix($prix) {
+        if ( $prix > 0 && $prix < 999.99) {
             return true;    
         } else {
             return false;
         }
     }
-    /* Verifie la valeur du prix de location */
+    /* 
+    M : Verifie la valeur du prix de location
+    O : string
+    I : prix de location
+    */
     function testVide($prixLocation) {
         if ($prixLocation == null) {
             return 'Non renseigné';
@@ -17,6 +25,11 @@
         }
 
     }
+    /* 
+    M : Definie les bouton de CRUD en fonction de la valeur du prix de location
+    O : string
+    I : prix de location, codeDurée et nom de la colonne
+    */
     function definitionBoutonCrud($prixLocation,$codeDuree,$colonne) {
         $crud = '';
         if($prixLocation == null) {
@@ -31,5 +44,15 @@
             </div>';
         } 
         return $crud;           
+    }
+
+    function verifImage($target_file){
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+        if(file_exists($target_file) && $imageFileType = "jpg") {
+            return true;
+        } else {
+            $_POST['msg'] = 2;
+        }
     }
 ?>
