@@ -1,6 +1,11 @@
 <?php
     include "pdo.php";
-    /* Récupère la liste des tarifications */
+
+    /* 
+    M : Récupère la liste des tarifications
+    O : array contenant les données
+    I : /
+     */
     function getListeTarification() {
         global $pdo;
         $requete = $pdo->prepare(
@@ -16,6 +21,11 @@
         $resultat = $requete->fetchall();
         return $resultat;
     }
+    /* 
+    M : Compare les valeur en input avec la BDD (simulation)
+    O : booléen
+    I : le login saisi et le mdp saisi
+     */
     function verifUserExiste ($login,$mdp) {
         $listeUsers = array (
             ["login" => "1","mdp" => "1"],
@@ -29,6 +39,11 @@
         }
         return $userExiste;
     }
+    /* 
+    M : Récupère la liste des equipiers
+    O : array contenant les données
+    I : /
+     */
     function getListeEquipier() {
         global $pdo;
 
