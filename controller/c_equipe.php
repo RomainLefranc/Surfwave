@@ -17,21 +17,20 @@ if (isset($_SESSION['user'])) {
                                 $temp = explode(".", $_FILES["image"]["name"]);
                                 $newfilename = $codeEq . '.' . end($temp);
                                 $target_file = "model/data/" . $newfilename;
-                                $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-                                $surnom = htmlspecialchars($_POST['surnom']);
-                                $nom = htmlspecialchars($_POST['nom']);
-                                $fonction = htmlspecialchars($_POST['fonction']);
-                                if(verifImage($target_file)) {
-                                    move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
 
+                                if(verifImage($target_file)) {
+                                    $surnom = htmlspecialchars($_POST['surnom']);
+                                    $nom = htmlspecialchars($_POST['nom']);
+                                    $fonction = htmlspecialchars($_POST['fonction']);
+
+                                    move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
                                     createEquipier($codeEq,$surnom,$nom,$fonction);
                                     /* Ajout effectué */
                                     header("location: index.php?action=E&msg=6");  
                                 } else {
-
                                     $_POST['msg'] = 1;
                                 }
- 
+
                             }
                         } else {
                             /* Msg = Equipier déjà existant */
@@ -42,13 +41,35 @@ if (isset($_SESSION['user'])) {
                         if (verifCodeEqExiste($codeEq)) {
                             switch (true) {
                                 case $crud == 'r':
-                                    $donnee = getInfoEquipier($codeEq);
+                                    $equipier = getInfoEquipier($codeEq);
                                     break;
                                 case $crud == 'u':
                                     if (isset($_POST['submitUpdateEquipier'])) {
-                                        # code...
+
+                                        $surnom = htmlspecialchars($_POST['surnom']);
+                                        $nom = htmlspecialchars($_POST['nom']);
+                                        $fonction = htmlspecialchars($_POST['fonction']);
+                                        
+                                        if (is_uploaded_file($_FILES['image']['tmp_name'])) {
+
+                                            $target_dir = "model/data/";
+                                            $temp = explode(".", $_FILES["image"]["name"]);
+                                            $newfilename = $codeEq . '.' . end($temp);
+                                            $target_file = "model/data/" . $newfilename;
+
+                                            if (verifImage($target_file)) {
+                                                $chemin = 'model/data/'.$codeEq.'.jpg';
+                                                unlink($chemin);
+                                                move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+                                                updateEquipier($codeEq,$surnom,$nom,$fonction);
+                                            } else {
+                                                $_POST['msg'] = 1;
+                                            }
+                                        } else {
+                                            updateEquipier($codeEq,$surnom,$nom,$fonction);
+                                        }
                                     }
-                                    $donnee = getInfoEquipier($codeEq);
+                                    $equipier = getInfoEquipier($codeEq);
                                     break;
                                 case $crud == 'd':
                                     deleteEquipier($codeEq);
@@ -81,7 +102,7 @@ if (isset($_SESSION['user'])) {
             $crud = '
             <div class="btn-group" role="group">
                 <a class="btn btn-primary btn-sm align-middle" href="index.php?action=E&crud=u&ce='.$equipier["codeEq"].'" role="button"><i class="fas fa-edit"></i></a>
-                <a class="btn btn-primary btn-sm align-middle" href="index.php?action=E&crud=r&ce='.$equipier["codeEq"].' role="button"><i class="far fa-eye"></i></a>
+                <a class="btn btn-primary btn-sm align-middle" href="index.php?action=E&crud=r&ce='.$equipier["codeEq"].'" role="button"><i class="far fa-eye"></i></a>
                 <a class="btn btn-danger btn-sm align-middle" href="index.php?action=E&crud=d&ce='.$equipier["codeEq"].'" role="button"><i class="fas fa-times"></i></a>
             </div>
             ';

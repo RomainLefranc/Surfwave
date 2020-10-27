@@ -1,3 +1,21 @@
+<?php
+    if (isset($_POST['msg'])) {
+        switch (true) {
+            case $_POST['msg'] == 1:
+                $msg = "Image invalide";
+                $typeMsg = 'danger';
+                break;
+        }
+        echo '
+        <div class="alert alert-'.$typeMsg.' alert-dismissible fade show m-1" role="alert">
+            '.$msg.'
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        ';
+    }
+?>
 <div class="container  mt-3">
     <div class='bloc ' id='coursdesurf'>
         <h2>Création d'un equipier</h2>
@@ -20,7 +38,6 @@
             </div>
             <div class="form-group">
                 <label for="image">Image</label>
-                <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                 <input type="file" class="form-control-file" id="image" name='image' required>
             </div>
             <button type="submit" name= 'submitCreationEquipe' class="btn btn-primary">Créer equipier</button>

@@ -49,10 +49,10 @@
     function verifImage($target_file){
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-        if(file_exists($target_file) && $imageFileType = "jpg") {
+        if(!file_exists($target_file) && $imageFileType = "jpg") {
             return true;
         } else {
-            $_POST['msg'] = 2;
+            return false;
         }
     }
 ?>

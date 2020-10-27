@@ -37,6 +37,24 @@
         unlink($chemin);
 
     }
+    function getInfoEquipier($codeEq) {
+        global $pdo;
+        $requete = $pdo->prepare('SELECT * FROM equipier WHERE codeEq = :codeEq');
+        $requete->execute(['codeEq' => $codeEq]);
+        $resultat = $requete->fetchall();
+        return $resultat[0]; 
+
+    }
+    function updateEquipier($codeEq,$surnom,$nom,$fonction) {
+        global $pdo;
+        $requete = $pdo->prepare('UPDATE equipier SET surnomEq = :surnom, nomEq = :nom, fonctionEq = :fonction WHERE codeEq = :codeEq ');
+        $requete->execute([            
+            'codeEq'        => $codeEq,
+            "surnom"        => $surnom,
+            "nom"           => $nom,
+            "fonction"      => $fonction
+        ]);    
+    }
 
 
 
