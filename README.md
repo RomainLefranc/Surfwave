@@ -58,7 +58,7 @@ dans le dossier "Media" mais dans le dossier "model/data/".
 
 ## Graphe de dialogue :
 
-![Graphe de dialogue Mission 8](https://user-images.githubusercontent.com/69463293/118407748-1d1fc080-b693-11eb-95f5-380ad0df45dd.png)
+![Graphe de dialogue Mission 8](https://user-images.githubusercontent.com/69463293/118407801-65d77980-b693-11eb-9caa-c2b3b6e3ab5b.jpg)
 
 ## Done :
 
